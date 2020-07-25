@@ -15,16 +15,16 @@ class TOONTANKS_API APawnBase : public APawn
 
 
 private:
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = RootComponent)
 	UCapsuleComponent* CapsuleComp;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Base)
 	UStaticMeshComponent* BaseMesh;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret)
 	UStaticMeshComponent* TurretMesh;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Projectile Spawn)
 	USceneComponent* ProjectileSpawnPoint;
 
 

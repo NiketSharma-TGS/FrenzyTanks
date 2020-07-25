@@ -1,3 +1,3 @@
-# Tanks 3D
+# FrenzyTanks
 
 Developed with Unreal Engine 4
