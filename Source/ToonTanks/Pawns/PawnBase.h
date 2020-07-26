@@ -15,16 +15,16 @@ class TOONTANKS_API APawnBase : public APawn
 
 
 private:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = RootComponent)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCapsuleComponent* CapsuleComp;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Base)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Projectile Spawn)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
 
 
@@ -32,14 +32,5 @@ public:
 	// Sets default values for this pawn's properties
 	APawnBase();
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 
 };
