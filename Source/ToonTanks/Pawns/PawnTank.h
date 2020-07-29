@@ -26,7 +26,11 @@ private:
 	FVector MoveDirection;
 	FQuat RotationDirection;
 
+	// Change Read/Write access if needed in BP later
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float MoveSpeed = 100.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Movement", meta = (AllowPrivateAccess = "true"))
 	float RotateSpeed = 100.0f;
 
 	void CalculateMoveInput(float Value); // for W & S
