@@ -25,5 +25,25 @@ APawnBase::APawnBase()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
+void APawnBase::TurretRotator(FVector LookAtTarget); // Argument recieves from the child class
+{
+	// Update TurretMesh Rotation to lookAtTarget
+	// TurretMesh->SetWorldRotation()...
+
+}
+
+void APawnBase::Fire();
+{
+	// spawnPoints and location update
+}
+
+void APawnBase::DestructionHandler();
+{
+	// Play effects
+
+	// Do child overrrrrrrrides
+
+	// Hide dead stuff
+}
 
 

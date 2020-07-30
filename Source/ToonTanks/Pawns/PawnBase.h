@@ -33,4 +33,12 @@ public:
 	APawnBase();
 
 
+protected:
+	void TurretRotator(FVector LookAtTarget);
+
+	// Expand later
+	void Fire();
+
+	virtual void DestructionHandler();
+
 };
