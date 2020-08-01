@@ -25,19 +25,26 @@ APawnBase::APawnBase()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-void APawnBase::TurretRotator(FVector LookAtTarget); // Argument recieves from the child class
+void APawnBase::TurretRotator(FVector LookAtTarget) // Argument recieves from the child class
 {
-	// Update TurretMesh Rotation to lookAtTarget
-	// TurretMesh->SetWorldRotation()...
+
+	// So we only rotate around the turret and not up or down
+
+	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
+	FVector Startlocation = TurretMesh->GetComponentLocation();
+
+	FRotator TurretRotation = FVector(LookAtTargetClean - Startlocation).Rotation();
+	TurretMesh->SetWorldRotation(TurretRotation);
 
 }
 
-void APawnBase::Fire();
+void APawnBase::Fire()
 {
 	// spawnPoints and location update
+	UE_LOG(LogTemp, Warning, TEXT("Success!"));
 }
 
-void APawnBase::DestructionHandler();
+void APawnBase::DestructionHandler()
 {
 	// Play effects
 

@@ -19,10 +19,27 @@ void APawnTurret::BeginPlay()
     PlayerPawn = Cast<APawnTank>(UGameplayStatics::GetPlayerPawn(this, 0)); 
 }
 
+
+void APawnTurret::DestructionHandler()
+{
+    // Call the OG to play effects first then move to the overridden logic 
+    Super::DestructionHandler();
+    Destroy();
+}
+
+
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+
+    if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange)
+    {
+        return;
+    }
+
+    TurretRotator(PlayerPawn->GetActorLocation());
+
 }
 
 void APawnTurret::CheckFireCondition()
@@ -38,8 +55,8 @@ void APawnTurret::CheckFireCondition()
     // IF Player IS in range THEN FIRE!! 
     if (ReturnDistanceToPlayer() <= FireRange)
     {
-        // Fire()
-        UE_LOG(LogTemp, Warning, TEXT("dhaen dhaen, maaro maaro!"));
+        Fire();
+        
     }
 
     

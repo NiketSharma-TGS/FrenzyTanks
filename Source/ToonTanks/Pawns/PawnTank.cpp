@@ -20,6 +20,14 @@ void APawnTank::BeginPlay()
 {
 	Super::BeginPlay();
 
+	PlayerControllerRef = Cast<APlayerController>(GetController());
+
+}
+
+void APawnTank::DestructionHandler()
+{
+	Super::DestructionHandler();
+	// Hide player and Destroy()
 }
 
 // Called every frame
@@ -29,6 +37,18 @@ void APawnTank::Tick(float DeltaTime)
 
 	Rotate();
 	Move();
+
+	if (PlayerControllerRef)
+	{
+		
+		FHitResult TraceHitResult;
+
+		// Simple Line trace(RayCasting)
+		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, TraceHitResult);
+		FVector HitLocation = TraceHitResult.ImpactPoint;
+
+		TurretRotator(HitLocation);
+	}
 
 }
 
@@ -42,6 +62,9 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	// For D & A
 	PlayerInputComponent->BindAxis("Turn", this, &APawnTank::CalculateRotateInput);
+
+	// For Mouse 1, Fire();
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);
 
 }
 
