@@ -71,6 +71,7 @@ float APawnTurret::ReturnDistanceToPlayer()
         return 0.0f;
     }
 
+    // Distance between playerPawn and the current posseded Actor
     float Distance = FVector::Dist(PlayerPawn->GetActorLocation(), GetActorLocation());
     return Distance;
 
