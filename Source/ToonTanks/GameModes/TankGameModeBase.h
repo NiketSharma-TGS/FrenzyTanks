@@ -17,6 +17,7 @@ class TOONTANKS_API ATankGameModeBase : public AGameModeBase
 
 private:
 
+	// The logic is handled here, the functionality to display this is handled in BPs
 	void HandleGameStart();
 	void HandleGameOver(bool PlayerWon);
 
