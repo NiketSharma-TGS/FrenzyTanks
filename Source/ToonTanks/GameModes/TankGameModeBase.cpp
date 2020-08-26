@@ -15,19 +15,20 @@ void ATankGameModeBase::BeginPlay()
 }
 
 
-void ActorDier(AActor* DeadActor) 
+void ATankGameModeBase::ActorDied(AActor* DeadActor)
 {
 	// Check thy type of Actor that died
+	UE_LOG(LogTemp, Warning, TEXT("Pawn Died"));
 }
 
-void HandleGameStart()
+void ATankGameModeBase::HandleGameStart()
 {
 	// Start the countdown and such
 
 	// Call the BP version
 }
 
-void HandleGameOver(bool PlayerWon)
+void ATankGameModeBase::HandleGameOver(bool PlayerWon)
 {
 	// Check for win condition
 
