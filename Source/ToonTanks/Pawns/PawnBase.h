@@ -40,13 +40,13 @@ public:
 	// Sets default values for this pawn's properties
 	APawnBase();
 
+	// Moved this in public so TankGameModeBase can access it
+	virtual void DestructionHandler();
 
 protected:
 	void TurretRotator(FVector LookAtTarget);
 
 	// Expand later
 	void Fire();
-
-	virtual void DestructionHandler();
 
 };
